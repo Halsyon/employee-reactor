@@ -25,6 +25,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Objects;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -54,6 +55,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Mono<EmployeeDto> saveEmployee(EmployeeDto employeeDto) {
         Employee employee = EmployeeMapper.mapToEmployee(employeeDto);
+        employee.getDctList().forEach(dct -> dct.setDocumentId(initUUID()));
         Mono<Employee> savedEmployee = employeeRepository.save(employee);
         return savedEmployee.map(EmployeeMapper::mapToEmployeeDto);
     }
@@ -67,14 +69,16 @@ public class EmployeeServiceImpl implements EmployeeService {
             throw new RuntimeException("Id must not be null");
         }
 
+        var employeeDtoUpdated = setIdDct(employeeDto);
         Mono<Employee> employeeMono = employeeRepository.findById(employeeId)
                 .switchIfEmpty(Mono.error(new RuntimeException("The employee does not exist!")));
 
         return employeeMono
                 .flatMap((existingEmployee) -> {
-                    existingEmployee.setFirstName(employeeDto.getFirstName());
-                    existingEmployee.setLastName(employeeDto.getLastName());
-                    existingEmployee.setEmail(employeeDto.getEmail());
+                    existingEmployee.setFirstName(employeeDtoUpdated.getFirstName());
+                    existingEmployee.setLastName(employeeDtoUpdated.getLastName());
+                    existingEmployee.setEmail(employeeDtoUpdated.getEmail());
+                    existingEmployee.setDctList(employeeDtoUpdated.getDctList());
                     return employeeRepository.save(existingEmployee);
                 })
                 .map((EmployeeMapper::mapToEmployeeDto));
@@ -85,7 +89,28 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (Objects.isNull(employeeId)) {
             throw new RuntimeException("Id must not be null");
         }
-        return employeeRepository.findById(employeeId)
+        var employeeMono = employeeRepository
+                .findById(employeeId)
+                .switchIfEmpty(
+                        Mono.error(new RuntimeException("The employee does not exist!"))
+                );
+        return employeeMono
                 .flatMap(employeeRepository::delete);
+    }
+
+    private String initUUID() {
+        return UUID.randomUUID().toString();
+    }
+
+    private EmployeeDto setIdDct(EmployeeDto employeeDto) {
+        employeeDto
+                .getDctList()
+                .forEach(dct -> {
+                            if (Objects.isNull(dct.getDocumentId())) {
+                                dct.setDocumentId(initUUID());
+                            }
+                        }
+                );
+        return employeeDto;
     }
 }

@@ -19,6 +19,9 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
@@ -30,5 +33,7 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
+
+    List<Dct> dctList = new ArrayList<>();
 
 }
