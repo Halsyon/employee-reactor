@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "372aa51f-423b-4573-ba05-ddb28708ed01",
+		"name": "employee-react",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25182223"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/employee",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/employee/644bf4633468c953dc3e859d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employee",
+						"644bf4633468c953dc3e859d"
+					]
+				},
+				"description": "POST"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/employee",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"firstName\": \"Don Sezar de Bazan\",\r\n    \"lastName\": \"de Bazan\",\r\n    \"email\": \"deBazan@mail.com\",\r\n    \"dctList\": [\r\n        {\r\n            \"documentId\": null,\r\n            \"dateOfIssue\": \"Passaporte\",\r\n            \"expirationDate\": \"22.05.35\",\r\n            \"fullName\": \"Documento Passaporte\",\r\n            \"shortName\": \"Passaporte\",\r\n            \"organization\": \"Don César\",\r\n            \"description\": \"Don  César\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/employee/644be1c27cf0eb4ae6c46bdf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employee",
+						"644be1c27cf0eb4ae6c46bdf"
+					]
+				},
+				"description": "GET"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"firstName\": \"Don Sezar de Bazan\",\r\n    \"lastName\": \"de Bazan\",\r\n    \"email\": \"deBazan@mail.com\",\r\n    \"dctList\": [\r\n        {\r\n            \"documentId\": null,\r\n            \"dateOfIssue\": \"Passaporte\",\r\n            \"expirationDate\": \"22.05.35\",\r\n            \"fullName\": \"Documento Passaporte\",\r\n            \"shortName\": \"Passaporte\",\r\n            \"organization\": \"Don César\",\r\n            \"description\": \"Don  César\"\r\n        }, \r\n        {\r\n            \"documentId\": null,\r\n            \"dateOfIssue\": \"Passaporte\",\r\n            \"expirationDate\": \"22.05.35\",\r\n            \"fullName\": \"Documento Passaporte\",\r\n            \"shortName\": \"Passaporte\",\r\n            \"organization\": \"Don César\",\r\n            \"description\": \"Don  César\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/employee/644bed2450d6064a3f686caa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employee",
+						"644bed2450d6064a3f686caa"
+					]
+				},
+				"description": "POST"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"644bf50847246402813defeb\",\r\n    \"firstName\": \"Don Sezar de Bazan\",\r\n    \"lastName\": \"de Bazan\",\r\n    \"email\": \"deBazan@mail.com\",\r\n    \"dctList\": [\r\n        {\r\n            \"documentId\": \"f4b8ca0b-d4f6-4c97-9532-4ffac19f0ea9\",\r\n            \"dateOfIssue\": \"Passaporte\",\r\n            \"expirationDate\": \"22.05.35\",\r\n            \"fullName\": \"Documento Passaporte\",\r\n            \"shortName\": \"Passaporte\",\r\n            \"organization\": \"Don César\",\r\n            \"description\": \"Don  César\"\r\n        },\r\n        {\r\n            \"documentId\": \"9a064b93-be0b-49fc-b431-e62f00cd9d83\",\r\n            \"dateOfIssue\": \"Passaporte\",\r\n            \"expirationDate\": \"22.05.35\",\r\n            \"fullName\": \"Documento Passaporte\",\r\n            \"shortName\": \"Passaporte\",\r\n            \"organization\": \"Don César\",\r\n            \"description\": \"Don  César\"\r\n        },\r\n         {\r\n            \"documentId\": null,\r\n            \"dateOfIssue\": \"Diploma\",\r\n            \"expirationDate\": \"22.05.35\",\r\n            \"fullName\": \"Documento\",\r\n            \"shortName\": \"Diploma\",\r\n            \"organization\": \"Don César\",\r\n            \"description\": \"Don  César\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/employee/644bf50847246402813defeb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employee",
+						"644bf50847246402813defeb"
+					]
+				},
+				"description": "PUT"
+			},
+			"response": []
+		}
+	]
+}
