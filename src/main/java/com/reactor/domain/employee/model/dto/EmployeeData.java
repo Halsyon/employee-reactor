@@ -1,6 +1,5 @@
 package com.reactor.domain.employee.model.dto;
 
-import com.reactor.domain.employee.model.entity.Employee;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
