@@ -55,7 +55,7 @@ public class RegistrationController {
     }
 
     @DeleteMapping("{employeeId}")
-    @ResponseStatus(value = HttpStatus.OK)
+//    @ResponseStatus(value = HttpStatus.OK)
     public Mono<Void> delete(@PathVariable String employeeId) {
         return employeeService.deleteEmployee(employeeId);
     }

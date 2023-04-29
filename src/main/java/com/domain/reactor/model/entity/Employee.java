@@ -33,7 +33,5 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
-
     List<Dct> dctList = new ArrayList<>();
-
 }

@@ -15,31 +15,67 @@ limitations under the License.
  */
 package com.domain.reactor.utils;
 
+import com.domain.reactor.model.dto.DctDto;
 import com.domain.reactor.model.dto.EmployeeDto;
+import com.domain.reactor.model.entity.Dct;
 import com.domain.reactor.model.entity.Employee;
+
+import java.util.List;
 
 /**
  * @description - class to map an entity to Dto
  */
 public class EmployeeMapper {
 
-    public static EmployeeDto mapToEmployeeDto(Employee employee){
+    public static EmployeeDto mapToEmployeeDto(Employee employee) {
         return new EmployeeDto(
                 employee.getId(),
                 employee.getFirstName(),
                 employee.getLastName(),
                 employee.getEmail(),
-                employee.getDctList()
+                mapToListDctDto(employee.getDctList())
         );
     }
 
-    public static Employee mapToEmployee(EmployeeDto employeeDto){
+    public static Employee mapToEmployee(EmployeeDto employeeDto) {
         return new Employee(
                 employeeDto.getId(),
                 employeeDto.getFirstName(),
                 employeeDto.getLastName(),
                 employeeDto.getEmail(),
-                employeeDto.getDctList()
+                EmployeeMapper.mapToListDct(employeeDto.getDctList())
         );
+    }
+
+    public static Dct mapToDct(DctDto document) {
+        return new Dct(
+                document.getDocumentId(),
+                document.getDateOfIssue(),
+                document.getExpirationDate(),
+                document.getFullName(),
+                document.getShortName(),
+                document.getOrganization(),
+                document.getDescription()
+        );
+    }
+
+    public static DctDto mapToDctDto(Dct document) {
+        return new DctDto(
+                document.getDocumentId(),
+                document.getDateOfIssue(),
+                document.getExpirationDate(),
+                document.getFullName(),
+                document.getShortName(),
+                document.getOrganization(),
+                document.getDescription()
+        );
+    }
+
+    public static List<Dct> mapToListDct(List<DctDto> list) {
+        return list.stream().map(EmployeeMapper::mapToDct).toList();
+    }
+
+    public static List<DctDto> mapToListDctDto(List<Dct> list) {
+        return list.stream().map(EmployeeMapper::mapToDctDto).toList();
     }
 }

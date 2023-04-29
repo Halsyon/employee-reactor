@@ -15,7 +15,6 @@ limitations under the License.
  */
 package com.domain.reactor.model.dto;
 
-import com.domain.reactor.model.entity.Dct;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -32,5 +31,5 @@ public class EmployeeDto {
     private String lastName;
     private String email;
 
-    List<Dct> dctList = new ArrayList<>();
+    List<DctDto> dctList = new ArrayList<>();
 }

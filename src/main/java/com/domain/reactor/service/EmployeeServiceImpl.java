@@ -66,7 +66,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             String employeeId
     ) {
         if (Objects.isNull(employeeId)) {
-            throw new RuntimeException("Id must not be null");
+            throw new RuntimeException("Id must not be null!");
         }
 
         var employeeDtoUpdated = setIdDct(employeeDto);
@@ -78,7 +78,9 @@ public class EmployeeServiceImpl implements EmployeeService {
                     existingEmployee.setFirstName(employeeDtoUpdated.getFirstName());
                     existingEmployee.setLastName(employeeDtoUpdated.getLastName());
                     existingEmployee.setEmail(employeeDtoUpdated.getEmail());
-                    existingEmployee.setDctList(employeeDtoUpdated.getDctList());
+                    existingEmployee.setDctList(
+                            EmployeeMapper.mapToListDct(employeeDtoUpdated.getDctList())
+                    );
                     return employeeRepository.save(existingEmployee);
                 })
                 .map((EmployeeMapper::mapToEmployeeDto));
