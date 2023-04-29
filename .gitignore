@@ -23,6 +23,7 @@ k8s/deployment.yaml
 docker/docker-compose.yml
 docker/Dockerfile
 /src/main/resources/application.yml
+/src/main/resources/application.properties
 /src/main/resources/changelog/*
 info.txt
 
