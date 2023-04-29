@@ -13,13 +13,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-package com.domain.reactor.utils;
+package com.reactor.domain.employee.utils;
 
-import com.domain.reactor.model.dto.DctDto;
-import com.domain.reactor.model.dto.EmployeeDto;
-import com.domain.reactor.model.entity.Dct;
-import com.domain.reactor.model.entity.Employee;
+import com.reactor.domain.employee.model.dto.DctDto;
+import com.reactor.domain.employee.model.dto.EmployeeData;
+import com.reactor.domain.employee.model.dto.EmployeeDto;
+import com.reactor.domain.employee.model.entity.Dct;
+import com.reactor.domain.employee.model.entity.Employee;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -68,6 +70,17 @@ public class EmployeeMapper {
                 document.getShortName(),
                 document.getOrganization(),
                 document.getDescription()
+        );
+    }
+
+    public static EmployeeData mapToEmployeeData(EmployeeDto employeeDto) {
+        return new EmployeeData(null, "some text", LocalDateTime.now(),
+                new EmployeeDto(
+                employeeDto.getId(),
+                employeeDto.getFirstName(),
+                employeeDto.getLastName(),
+                employeeDto.getEmail(),
+                employeeDto.getDctList())
         );
     }
 

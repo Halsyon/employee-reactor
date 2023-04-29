@@ -13,13 +13,24 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-package com.domain.reactor.repository;
+package com.reactor.domain.employee.model.entity;
 
-import com.domain.reactor.model.entity.Employee;
-import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
-import org.springframework.stereotype.Repository;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Repository
-public interface EmployeeRepository extends ReactiveMongoRepository<Employee, String> {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Dct {
+
+    private String documentId;
+    private String dateOfIssue;
+    private String expirationDate;
+    private String fullName;
+    private String shortName;
+    private String organization;
+    private String description;
 
 }
+

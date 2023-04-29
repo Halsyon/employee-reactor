@@ -13,24 +13,23 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-package com.domain.reactor.model.entity;
+package com.reactor.domain.employee.model.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+import java.util.ArrayList;
+import java.util.List;
+
+@Builder
+@Getter @Setter @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Dct {
+public class EmployeeDto {
 
-    private String documentId;
-    private String dateOfIssue;
-    private String expirationDate;
-    private String fullName;
-    private String shortName;
-    private String organization;
-    private String description;
+    private String id;
+    private String firstName;
+    private String lastName;
+    private String email;
 
+    List<DctDto> dctList = new ArrayList<>();
 }
-

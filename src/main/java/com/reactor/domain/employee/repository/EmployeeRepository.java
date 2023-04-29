@@ -13,16 +13,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-package com.domain.reactor;
+package com.reactor.domain.employee.repository;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.reactor.domain.employee.model.entity.Employee;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.stereotype.Repository;
 
-@SpringBootApplication
-public class StudentReactorApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(StudentReactorApplication.class, args);
-    }
+@Repository
+public interface EmployeeRepository extends ReactiveMongoRepository<Employee, String> {
 
 }

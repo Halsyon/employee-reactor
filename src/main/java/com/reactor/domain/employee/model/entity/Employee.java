@@ -13,21 +13,25 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-package com.domain.reactor.service;
+package com.reactor.domain.employee.model.entity;
 
-import com.domain.reactor.model.dto.EmployeeDto;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-interface EmployeeService {
+import java.util.ArrayList;
+import java.util.List;
 
-    Mono<EmployeeDto> saveEmployee(EmployeeDto employeeDto);
+@Data
+@AllArgsConstructor
+@NoArgsConstructor //(access = AccessLevel.PRIVATE, force = true)
+@Document(value = "employees")
+public class Employee {
 
-    Mono<EmployeeDto> getEmployee(String employeeId);
-
-    Flux<EmployeeDto> getAllEmployees();
-
-    Mono<EmployeeDto> updateEmployee(EmployeeDto employeeDto, String employeeId);
-
-    Mono<Void> deleteEmployee(String employeeId);
+    @Id
+    private String id;
+    private String firstName;
+    private String lastName;
+    private String email;
+    List<Dct> dctList = new ArrayList<>();
 }

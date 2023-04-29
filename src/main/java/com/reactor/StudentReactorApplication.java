@@ -13,23 +13,17 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-package com.domain.reactor.model.dto;
+package com.reactor;
 
-import lombok.*;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration;
 
-import java.util.ArrayList;
-import java.util.List;
+@SpringBootApplication(exclude = SpringApplicationAdminJmxAutoConfiguration.class)
+public class StudentReactorApplication {
 
-@Builder
-@Getter @Setter @ToString
-@NoArgsConstructor
-@AllArgsConstructor
-public class EmployeeDto {
+    public static void main(String[] args) {
+        SpringApplication.run(StudentReactorApplication.class, args);
+    }
 
-    private String id;
-    private String firstName;
-    private String lastName;
-    private String email;
-
-    List<DctDto> dctList = new ArrayList<>();
 }

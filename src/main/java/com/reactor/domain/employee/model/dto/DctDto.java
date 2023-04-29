@@ -1,4 +1,4 @@
-package com.domain.reactor.model.dto;
+package com.reactor.domain.employee.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

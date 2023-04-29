@@ -13,10 +13,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-package com.domain.reactor.controller;
+package com.reactor.domain.employee.controller;
 
-import com.domain.reactor.model.dto.EmployeeDto;
-import com.domain.reactor.service.EmployeeServiceImpl;
+import com.reactor.domain.employee.model.dto.EmployeeDto;
+import com.reactor.domain.employee.service.EmployeeServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
