@@ -4,5 +4,10 @@
       "name": "server.email",
       "type": "java.lang.String",
       "description": "Description for server.email."
-  }
-] }
+    },
+    {
+      "name": "FAKE_PRODUCER_DTO_TOPIC",
+      "type": "java.lang.String",
+      "description": "Description for FAKE_PRODUCER_DTO_TOPIC."
+    }
+  ] }
