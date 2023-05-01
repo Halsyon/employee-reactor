@@ -1,5 +1,5 @@
 /*
-Copyright [2023] [Halsyon]
+Copyright (c) 2016-2023 VMware Inc. or its affiliates, All Rights Reserved. [Halsyon]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,9 +15,7 @@ limitations under the License.
  */
 package com.reactor.domain.employee.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
