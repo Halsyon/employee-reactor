@@ -15,15 +15,22 @@ limitations under the License.
  */
 package com.reactor;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication(exclude = SpringApplicationAdminJmxAutoConfiguration.class)
-public class StudentReactorApplication {
+public class EmployeeReactorApplication {
+
+    @Bean
+    public ModelMapper modelMapper(){
+        return new ModelMapper();
+    }
 
     public static void main(String[] args) {
-        SpringApplication.run(StudentReactorApplication.class, args);
+        SpringApplication.run(EmployeeReactorApplication.class, args);
     }
 
 }
